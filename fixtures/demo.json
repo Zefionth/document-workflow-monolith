@@ -1,0 +1,125 @@
+[
+    {
+        "model":  "documents.user",
+        "pk":  1,
+        "fields":  {
+                       "password":  "md5$$1a1dc91c907325c69271ddf0c944bc72",
+                       "last_login":  null,
+                       "is_superuser":  false,
+                       "username":  "employee",
+                       "first_name":  "Иван",
+                       "last_name":  "Сотрудник",
+                       "email":  "employee@example.local",
+                       "is_staff":  false,
+                       "is_active":  true,
+                       "date_joined":  "2026-09-08T10:00:00Z",
+                       "role":  "employee",
+                       "department":  "Закупки",
+                       "groups":  [
+
+                                  ],
+                       "user_permissions":  [
+
+                                            ]
+                   }
+    },
+    {
+        "model":  "documents.user",
+        "pk":  2,
+        "fields":  {
+                       "password":  "md5$$1a1dc91c907325c69271ddf0c944bc72",
+                       "last_login":  null,
+                       "is_superuser":  false,
+                       "username":  "manager",
+                       "first_name":  "Мария",
+                       "last_name":  "Руководитель",
+                       "email":  "manager@example.local",
+                       "is_staff":  false,
+                       "is_active":  true,
+                       "date_joined":  "2026-09-08T10:00:00Z",
+                       "role":  "manager",
+                       "department":  "Закупки",
+                       "groups":  [
+
+                                  ],
+                       "user_permissions":  [
+
+                                            ]
+                   }
+    },
+    {
+        "model":  "documents.user",
+        "pk":  3,
+        "fields":  {
+                       "password":  "md5$$1a1dc91c907325c69271ddf0c944bc72",
+                       "last_login":  null,
+                       "is_superuser":  false,
+                       "username":  "lawyer",
+                       "first_name":  "Олег",
+                       "last_name":  "Юрист",
+                       "email":  "lawyer@example.local",
+                       "is_staff":  false,
+                       "is_active":  true,
+                       "date_joined":  "2026-09-08T10:00:00Z",
+                       "role":  "lawyer",
+                       "department":  "Правовой отдел",
+                       "groups":  [
+
+                                  ],
+                       "user_permissions":  [
+
+                                            ]
+                   }
+    },
+    {
+        "model":  "documents.user",
+        "pk":  4,
+        "fields":  {
+                       "password":  "md5$$1a1dc91c907325c69271ddf0c944bc72",
+                       "last_login":  null,
+                       "is_superuser":  false,
+                       "username":  "cfo",
+                       "first_name":  "Анна",
+                       "last_name":  "Финансовый директор",
+                       "email":  "cfo@example.local",
+                       "is_staff":  false,
+                       "is_active":  true,
+                       "date_joined":  "2026-09-08T10:00:00Z",
+                       "role":  "cfo",
+                       "department":  "Финансовый отдел",
+                       "groups":  [
+
+                                  ],
+                       "user_permissions":  [
+
+                                            ]
+                   }
+    },
+    {
+        "model":  "documents.document",
+        "pk":  1,
+        "fields":  {
+                       "title":  "Договор на поставку канцелярии",
+                       "document_type":  "contract",
+                       "amount":  "4500.00",
+                       "content":  "Демо-документ, попадает на согласование руководителю и юристу.",
+                       "author":  1,
+                       "status":  "draft",
+                       "created_at":  "2026-09-08T10:05:00Z",
+                       "updated_at":  "2026-09-08T10:05:00Z"
+                   }
+    },
+    {
+        "model":  "documents.history",
+        "pk":  1,
+        "fields":  {
+                       "document":  1,
+                       "actor":  1,
+                       "action":  "created",
+                       "old_status":  "",
+                       "new_status":  "draft",
+                       "comment":  "",
+                       "created_at":  "2026-09-08T10:05:00Z"
+                   }
+    }
+]

@@ -1,0 +1,39 @@
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      # Приложение читает из окружения ТОЛЬКО хосты (чтобы работать внутри compose).
+      # SECRET_KEY, пароль БД и прочие секреты захардкожены в config/settings.py — учебная уязвимость.
+      DB_HOST: db
+      REDIS_HOST: redis
+    command: sh -c "python manage.py migrate && python manage.py loaddata fixtures/demo.json && python manage.py runserver 0.0.0.0:8000"
+
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: document_workflow
+      POSTGRES_USER: document_user
+      POSTGRES_PASSWORD: document_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U document_user -d document_workflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+
+volumes:
+  postgres_data:
